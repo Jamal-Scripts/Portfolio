@@ -493,6 +493,71 @@
             border-color: rgba(255, 107, 53, 0.3);
         }
 
+        .view-more-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 350px;
+            background: linear-gradient(135deg, var(--card) 0%, rgba(255, 107, 53, 0.05) 100%);
+            border: 1px dashed var(--border);
+        }
+
+        .view-more-card:hover {
+            border-style: solid;
+            border-color: var(--accent);
+            background: linear-gradient(135deg, var(--card) 0%, rgba(255, 107, 53, 0.1) 100%);
+        }
+
+        .view-more-content {
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .view-more-icon {
+            width: 80px;
+            height: 80px;
+            border: 2px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .view-more-icon svg {
+            width: 32px;
+            height: 32px;
+            stroke: var(--muted);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .view-more-card:hover .view-more-icon {
+            border-color: var(--accent);
+            background: var(--accent);
+            transform: scale(1.1);
+        }
+
+        .view-more-card:hover .view-more-icon svg {
+            stroke: var(--bg);
+            transform: translateX(4px);
+        }
+
+        .view-more-content h3 {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.75rem;
+            font-weight: 400;
+            margin-bottom: 0.75rem;
+        }
+
+        .view-more-content p {
+            color: var(--muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            max-width: 250px;
+            margin: 0 auto;
+        }
+
         .work-card-content {
             padding: 2rem;
         }
@@ -990,23 +1055,15 @@
                     </div>
                 </div>
             </div>
-            <div class="work-card reveal stagger-4 no-video" onclick="openImage('https://raw.githubusercontent.com/oval-scripts/Portfolio/main/assets/project4.png')">
-                <div class="work-card-image">
-                    <img src="https://raw.githubusercontent.com/oval-scripts/Portfolio/main/assets/project4.png" alt="Project 4">
-                    <div class="zoom-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
+            <div class="work-card reveal stagger-4 view-more-card" onclick="window.location.href='all-projects.html'">
+                <div class="view-more-content">
+                    <div class="view-more-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                         </svg>
                     </div>
-                </div>
-                <div class="work-card-content">
-                    <div class="work-card-number">04</div>
-                    <h3>Project Four</h3>
-                    <p>Another showcase of clean code and polished mechanics. Video coming soon.</p>
-                    <div class="work-card-tags">
-                        <span class="tag">Roblox</span>
-                        <span class="tag">Lua</span>
-                    </div>
+                    <h3>View All Projects</h3>
+                    <p>Explore the complete collection of my work, showcases, and experiments.</p>
                 </div>
             </div>
         </div>
