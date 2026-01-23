@@ -171,7 +171,7 @@
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
         }
 
@@ -184,13 +184,6 @@
             transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1),
                         border-color 0.3s ease,
                         box-shadow 0.3s ease;
-            opacity: 0;
-            transform: translateY(40px);
-        }
-
-        .project-card.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
 
         .project-card:hover {
@@ -533,7 +526,7 @@
             <!-- Project 1 -->
             <div class="project-card" onclick="openVideo('O73KBqbknt0')">
                 <div class="project-image">
-                    <img src="https://github.com/oval-scripts/Portfolio/blob/main/assets/project1.png?raw=true" alt="Simple Combat System">
+                    <img src="./assets/project1.png" alt="Simple Combat System">
                     <div class="project-overlay">
                         <div class="overlay-icon play">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -557,7 +550,7 @@
             <!-- Project 2 -->
             <div class="project-card" onclick="openVideo('rnrnPUz4F30')">
                 <div class="project-image">
-                    <img src="https://github.com/oval-scripts/Portfolio/blob/main/assets/project2.png?raw=true" alt="Dialog NPC System">
+                    <img src="./assets/project2.png" alt="Dialog NPC System">
                     <div class="project-overlay">
                         <div class="overlay-icon play">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -581,7 +574,7 @@
             <!-- Project 3 -->
             <div class="project-card" onclick="openVideo('HENqNveaaKs')">
                 <div class="project-image">
-                    <img src="https://github.com/oval-scripts/Portfolio/blob/main/assets/project3.png?raw=true" alt="Mini Pizza Game">
+                    <img src="./assets/project3.png" alt="Mini Pizza Game">
                     <div class="project-overlay">
                         <div class="overlay-icon play">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -603,9 +596,9 @@
             </div>
 
             <!-- Project 4 -->
-            <div class="project-card" onclick="openImage('https://github.com/oval-scripts/Portfolio/blob/main/assets/project4.png?raw=true')">
+            <div class="project-card" onclick="openImage('./assets/project4.png')">
                 <div class="project-image">
-                    <img src="https://github.com/oval-scripts/Portfolio/blob/main/assets/project4.png?raw=true" alt="Project 4">
+                    <img src="./assets/project4.png" alt="Project 4">
                     <div class="project-overlay">
                         <div class="overlay-icon zoom">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2">
