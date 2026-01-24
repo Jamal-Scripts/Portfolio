@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Door System",
+    "type": "image",
+    "src": "assets/project1.png",
+    "description": "Modular door logic with access control."
+  },
+  {
+    "title": "Totem System",
+    "type": "image",
+    "src": "assets/project2.png",
+    "description": "Health / rarity totem system."
+  },
+  {
+    "title": "Bike Script",
+    "type": "image",
+    "src": "assets/project3.png",
+    "description": "Physics-based bike controller."
+  },
+  {
+    "title": "NPC Dialog",
+    "type": "image",
+    "src": "assets/project4.png",
+    "description": "Dialogue tree logic."
+  },
+  {
+    "title": "NPC Dialog System",
+    "type": "youtube",
+    "url": "https://youtu.be/rnrnPUz4F30",
+    "description": "Dialogue system showcase."
+  },
+  {
+    "title": "Mini Pizza Game",
+    "type": "youtube",
+    "url": "https://youtu.be/HENqNveaaKs",
+    "description": "Gameplay demo."
+  },
+  {
+    "title": "Combat System",
+    "type": "youtube",
+    "url": "https://youtu.be/O73KBqbknt0",
+    "description": "Combat system demo."
+  }
+]
