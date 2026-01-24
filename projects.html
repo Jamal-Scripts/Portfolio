@@ -167,7 +167,7 @@ color:var(--muted);
 letter-spacing:.05em;
 }
 
-/* Image Modal */
+/* Modal */
 .image-modal{
 position:fixed;
 inset:0;
@@ -228,7 +228,7 @@ nav{padding:1.5rem 2rem}
 
 <header class="page-header">
 <h1>All <em>Projects</em></h1>
-<p>Code systems and gameplay showcases.</p>
+<p>Auto-synced project list.</p>
 </header>
 
 <section class="projects-section">
@@ -245,43 +245,45 @@ nav{padding:1.5rem 2rem}
 </div>
 
 <script>
-const workItems=[
-{title:"Door System",type:"image",src:"assets/project1.png"},
-{title:"Totem System",type:"image",src:"assets/project2.png"},
-{title:"Bike Script",type:"image",src:"assets/project3.png"},
-{title:"NPC Dialog",type:"image",src:"assets/project4.png"},
-{title:"NPC Dialog System",type:"youtube",url:"https://youtu.be/rnrnPUz4F30"},
-{title:"Mini Pizza Game",type:"youtube",url:"https://youtu.be/HENqNveaaKs"},
-{title:"Combat System",type:"youtube",url:"https://youtu.be/O73KBqbknt0"}
-];
-
 const grid=document.getElementById("projectsGrid");
 
-workItems.forEach((item,i)=>{
-const card=document.createElement("div");
-card.className="project-card";
-card.onclick=()=>item.type==="image"?openImage(item.src):window.open(item.url,"_blank");
+fetch("projects.json")
+.then(res=>{
+  if(!res.ok) throw new Error("projects.json not found");
+  return res.json();
+})
+.then(items=>{
+  items.forEach((item,i)=>{
+    const card=document.createElement("div");
+    card.className="project-card";
+    card.onclick=()=>item.type==="image"
+      ?openImage(item.src)
+      :window.open(item.url,"_blank");
 
-card.innerHTML=`
-<div class="project-image">
-<img src="${item.type==="image"?item.src:getYT(item.url)}">
-<div class="project-overlay">
-<div class="overlay-icon">
-${item.type==="image"?zoomIcon():playIcon()}
-</div>
-</div>
-</div>
-<div class="project-info">
-<div class="project-number">${String(i+1).padStart(2,"0")}</div>
-<h3>${item.title}</h3>
-<p>${item.type==="image"?"Code screenshot":"Video showcase"}</p>
-<div class="project-tags">
-<span class="tag">${item.type.toUpperCase()}</span>
-<span class="tag">ROBLOX</span>
-<span class="tag">LUA</span>
-</div>
-</div>`;
-grid.appendChild(card);
+    card.innerHTML=`
+    <div class="project-image">
+      <img src="${item.type==="image"?item.src:getYT(item.url)}">
+      <div class="project-overlay">
+        <div class="overlay-icon">
+          ${item.type==="image"?zoomIcon():playIcon()}
+        </div>
+      </div>
+    </div>
+    <div class="project-info">
+      <div class="project-number">${String(i+1).padStart(2,"0")}</div>
+      <h3>${item.title}</h3>
+      <p>${item.description||""}</p>
+      <div class="project-tags">
+        <span class="tag">${item.type.toUpperCase()}</span>
+        <span class="tag">ROBLOX</span>
+        <span class="tag">LUA</span>
+      </div>
+    </div>`;
+    grid.appendChild(card);
+  });
+})
+.catch(()=>{
+  grid.innerHTML="<p style='color:#777'>Failed to load projects.json</p>";
 });
 
 function getYT(url){
@@ -290,11 +292,13 @@ return`https://img.youtube.com/vi/${id}/hqdefault.jpg`;
 }
 function zoomIcon(){return`
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-<path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197M10.5 7.5v6m3-3h-6M16 10.5a5.5 5.5 0 11-11 0 5.5 5.5 0 0111 0z"/>
+<path stroke-linecap="round" stroke-linejoin="round"
+d="M21 21l-5.197-5.197M10.5 7.5v6m3-3h-6M16 10.5a5.5 5.5 0 11-11 0 5.5 5.5 0 0111 0z"/>
 </svg>`}
 function playIcon(){return`
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-<path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-5.197-3.03A1 1 0 008 9.03v5.94a1 1 0 001.555.832l5.197-3.03a1 1 0 000-1.664z"/>
+<path stroke-linecap="round" stroke-linejoin="round"
+d="M14.752 11.168l-5.197-3.03A1 1 0 008 9.03v5.94a1 1 0 001.555.832l5.197-3.03a1 1 0 000-1.664z"/>
 </svg>`}
 
 const modal=document.getElementById("imageModal");
