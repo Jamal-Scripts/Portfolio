@@ -40,5 +40,11 @@
     "type": "youtube",
     "url": "https://youtu.be/O73KBqbknt0",
     "description": "Combat system demo."
+  },
+  {
+    "title": "NPC Pathway",
+    "type": "youtube",
+    "url": "https://youtu.be/cIAQZBTqtkY",
+    "description": "Demonstration of NPC AI pathway."
   }
 ]
