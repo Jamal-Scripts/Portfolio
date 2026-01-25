@@ -21,7 +21,7 @@
     "title": "NPC Dialog",
     "type": "image",
     "src": "assets/project4.png",
-    "description": "Dialogue tree logic."
+    "description": "Module NPC dialog system."
   },
   {
     "title": "NPC Dialog System",
